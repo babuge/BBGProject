@@ -93,7 +93,7 @@ void BootstrapEntry::init()
         // debug 核心模块并运行
         QMap<QString, PtrType>::const_iterator item = m_coreHandle.constBegin();
         while (item != m_coreHandle.constEnd()) {
-            if (auto pCore = getObjPtr<BaseExport *>(item.key())) {
+            if (auto pCore = getObjPtr<IBaseExport *>(item.key())) {
                 pCore->start();
                 pCore->descripte();
             }
@@ -128,7 +128,7 @@ void BootstrapEntry::init()
                 while (subIt != it->constEnd()) {
                     IResouceLoad * p_resources = resources;
                     if (auto module = p_resources->GetResource(subIt.key(), static_cast<ResourceType>(subIt.value()))) {
-                        BaseExport* p_Export = reinterpret_cast<BaseExport*>(module);
+                        IBaseExport* p_Export = reinterpret_cast<IBaseExport*>(module);
                         p_Export->descripte();
                         p_Export->start();
                     }
@@ -164,7 +164,7 @@ void BootstrapEntry::unInit()
         while (it != m_coreLibs.end()) {
             QMap<QString, PtrType>::iterator item = m_coreHandle.find(*it);
             if (item != m_coreHandle.end()) {
-                if (auto pCore = getObjPtr<BaseExport *>(item.key())) {
+                if (auto pCore = getObjPtr<IBaseExport *>(item.key())) {
                     pCore->stop();
                     m_coreHandle.remove(*it);
                 }

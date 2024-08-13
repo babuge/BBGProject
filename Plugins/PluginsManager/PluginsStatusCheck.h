@@ -1,5 +1,4 @@
-#ifndef PLUGINSSTATUSCHECK_H
-#define PLUGINSSTATUSCHECK_H
+#pragma once
 
 #include "PluginSpace.h"
 #include <QMap>
@@ -27,4 +26,3 @@ private:
     int m_count{ 0 };
 };
 
-#endif  // PLUGINSSTATUSCHECK_H

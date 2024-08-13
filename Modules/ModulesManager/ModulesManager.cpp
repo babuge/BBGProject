@@ -7,7 +7,7 @@
 
 static QMap<QString, void *> g_golbalLibraryMap;
 
-ModulesManager::ModulesManager(QObject *parent) : BaseExport(parent) {}
+ModulesManager::ModulesManager(QObject *parent) : IBaseExport(parent) {}
 
 ModulesManager::~ModulesManager()
 {

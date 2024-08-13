@@ -9,7 +9,7 @@
 
 QMap<QString, PluginsStatusPtr> g_golbalPluginsStatus;
 QReadWriteLock PluginsManager::m_rwLock;
-PluginsManager::PluginsManager(QObject *parent) : BaseExport(parent) {}
+PluginsManager::PluginsManager(QObject *parent) : IBaseExport(parent) {}
 
 PluginsManagerPtr PluginsManager::instance()
 {

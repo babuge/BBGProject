@@ -115,5 +115,7 @@ public:
     }
 
 private:
+    TryUtil() = delete;
+    TryUtil(const TryUtil &) = delete;
 };
 

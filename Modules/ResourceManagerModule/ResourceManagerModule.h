@@ -1,6 +1,6 @@
 #pragma once
 
-#include "BaseExport.h"
+#include "IBaseExport.h"
 #include "ResourceManagerModule_global.h"
 
 #include <QReadWriteLock>
@@ -18,7 +18,7 @@ using StringPrtMapType    = QMap<QString, PtrType>;
 using ResourceTypePtr     = QSharedPointer<StringPrtMapType>;
 using ResourceVector      = QVector<ResourceTypePtr>;
 
-class RESOURCEMANAGERMODULE_EXPORT ResourceManagerModule : public BaseExport, public IResouceLoad
+class RESOURCEMANAGERMODULE_EXPORT ResourceManagerModule : public IBaseExport, public IResouceLoad
 {
 
 public:

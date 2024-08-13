@@ -1,12 +1,12 @@
 #ifndef BUSSINESSMODULE_H
 #define BUSSINESSMODULE_H
 
-#include "BaseExport.h"
+#include "IBaseExport.h"
 #include "BussinessModule_global.h"
 
 #include <QSharedPointer>
 
-class BUSSINESSMODULE_EXPORT BussinessModule : public BaseExport
+class BUSSINESSMODULE_EXPORT BussinessModule : public IBaseExport
 {
 public:
     typedef QSharedPointer<BussinessModule> ptr;

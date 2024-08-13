@@ -9,7 +9,7 @@
 
 #include <QDebug>
 
-ResourceManagerModule::ResourceManagerModule(QObject *parent) : BaseExport(parent)
+ResourceManagerModule::ResourceManagerModule(QObject *parent) : IBaseExport(parent)
 {
     m_resourceArr.resize(6);
     for (int i = 0; i < 6; ++i) {
@@ -114,13 +114,13 @@ void ResourceManagerModule::freeResource(const QString &moduleName, const Resour
 {
     if (m_resourceArr[static_cast<int>(type)]->contains(moduleName)) {
         auto module =
-            reinterpret_cast<BaseExport *>(m_resourceArr[static_cast<int>(type)]->value(moduleName));
+            reinterpret_cast<IBaseExport *>(m_resourceArr[static_cast<int>(type)]->value(moduleName));
         if (module->isRunning()) {
             module->stop();
             if (module->FreeType() == ResourceFreeType::EXTRA) {
                 // If deleteLater() is called after the main event loop has stopped(mean application
                 // quit), the object will not be deleted.
-                reinterpret_cast<BaseExport *>(m_resourceArr[static_cast<int>(type)]->value(moduleName))
+                reinterpret_cast<IBaseExport *>(m_resourceArr[static_cast<int>(type)]->value(moduleName))
                     ->deleteLater();
             }
         }

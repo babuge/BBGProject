@@ -17,8 +17,8 @@ SOURCES += \
 
 
 HEADERS += \
-    ABCInclude/BaseExport.h \
     ABCInclude/CommonBase.h \
+    ABCInclude/IBaseExport.h \
     ABCInclude/ResouceLoadCommon.h \
     MainWindow.h \
     ABCInclude/FramWorkExtend.h \

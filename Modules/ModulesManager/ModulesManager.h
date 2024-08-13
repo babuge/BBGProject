@@ -1,7 +1,7 @@
 #ifndef MODULESMANAGER_H
 #define MODULESMANAGER_H
 
-#include "BaseExport.h"
+#include "IBaseExport.h"
 #include "ModulesManager_global.h"
 
 #include <QLibrary>
@@ -14,7 +14,7 @@
 class ModulesManager;
 using ModulesManagerPtr = QSharedPointer<ModulesManager>;
 
-class MODULESMANAGER_EXPORT ModulesManager : public BaseExport
+class MODULESMANAGER_EXPORT ModulesManager : public IBaseExport
 {
     Q_OBJECT
 public:

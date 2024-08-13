@@ -1,11 +1,11 @@
-#ifndef BASEEXPORT_H
-#define BASEEXPORT_H
+#pragma once
+
 #include "FramWorkExtend.h"
 #include <QObject>
 
 #include <QDebug>
 
-class BaseExport : public QObject
+class IBaseExport : public QObject
 {
 protected:
     LIFECYCLE_STATUS
@@ -15,8 +15,8 @@ public:
         AUTO = 0,
         EXTRA
     } ResourceFreeType;
-    explicit BaseExport(QObject *parent = nullptr) : QObject(parent) {}
-    virtual ~BaseExport() {}
+    explicit IBaseExport(QObject *parent = nullptr) : QObject(parent) {}
+    virtual ~IBaseExport() {}
 
     virtual void start()     = 0;
     virtual void stop()      = 0;
@@ -28,4 +28,3 @@ public:
     }
 };
 
-#endif  // BASEEXPORT_H

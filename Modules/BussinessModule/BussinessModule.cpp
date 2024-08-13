@@ -3,7 +3,7 @@
 #include <QDebug>
 
 BussinessModule::BussinessModule(QObject *parent)
-    : BaseExport(parent), m_freeType(ResourceFreeType::EXTRA)
+    : IBaseExport(parent), m_freeType(ResourceFreeType::EXTRA)
 {
 }
 
@@ -36,7 +36,7 @@ void BussinessModule::descripte()
     qDebug() << "BussinessModule::descripte!";
 }
 
-BaseExport::ResourceFreeType BussinessModule::FreeType() const
+IBaseExport::ResourceFreeType BussinessModule::FreeType() const
 {
     return m_freeType;
 }

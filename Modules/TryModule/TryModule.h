@@ -1,6 +1,6 @@
 #ifndef TRYMODULE_H
 #define TRYMODULE_H
-#include "BaseExport.h"
+#include "IBaseExport.h"
 #include "TryModule_global.h"
 
 #include <QObject>
@@ -9,7 +9,7 @@
 class TryModule;
 
 using TryModulePtr = QSharedPointer< TryModule >;
-class TRYMODULE_EXPORT TryModule : public BaseExport {
+class TRYMODULE_EXPORT TryModule : public IBaseExport {
 public:
     virtual ~TryModule() override;
 

@@ -1,7 +1,6 @@
-#ifndef PLUGINSMANAGER_H
-#define PLUGINSMANAGER_H
+#pragma once
 
-#include "BaseExport.h"
+#include "IBaseExport.h"
 #include "PluginsStatusCheck.h"
 #include "PluginsManager_global.h"
 
@@ -19,7 +18,7 @@ using PluginsStatusPtr = QSharedPointer<PluginSpace::PluginStatus>;
 
 extern QMap<QString, PluginsStatusPtr> g_golbalPluginsStatus;
 
-class PLUGINSMANAGER_EXPORT PluginsManager : public BaseExport
+class PLUGINSMANAGER_EXPORT PluginsManager : public IBaseExport
 {
     Q_OBJECT
 public:
@@ -50,5 +49,3 @@ private:
 private:
     PluginsStatusCheck *m_pluginCheck = nullptr;
 };
-
-#endif // PLUGINSMANAGER_H

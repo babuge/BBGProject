@@ -4,7 +4,7 @@
 
 #include <QDebug>
 
-TryModule::TryModule(QObject *parent) : BaseExport(parent), m_freeType(ResourceFreeType::AUTO) {}
+TryModule::TryModule(QObject *parent) : IBaseExport(parent), m_freeType(ResourceFreeType::AUTO) {}
 
 TryModule::~TryModule()
 {
@@ -27,7 +27,7 @@ void TryModule::start()
     }
 }
 
-BaseExport::ResourceFreeType TryModule::FreeType() const
+IBaseExport::ResourceFreeType TryModule::FreeType() const
 {
     return m_freeType;
 }
