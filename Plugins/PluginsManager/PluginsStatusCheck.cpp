@@ -4,7 +4,9 @@
 using PluginsStatusPtr = QSharedPointer<PluginSpace::PluginStatus>;
 extern QMap<QString, PluginsStatusPtr> g_golbalPluginsStatus;
 
-PluginsStatusCheck::PluginsStatusCheck(QObject *parent) : QThread(parent) {}
+PluginsStatusCheck::PluginsStatusCheck(QObject *parent) : QThread(parent) {
+    setObjectName("PluginManager_qt_thread");
+}
 
 void PluginsStatusCheck::run()
 {
@@ -27,7 +29,7 @@ void PluginsStatusCheck::run()
         }
 
         m_count++;
-        qDebug() << m_count;
+        qDebug() << objectName() << m_count;
 
         // handle
         if (hasModify) {

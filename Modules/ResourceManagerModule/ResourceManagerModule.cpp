@@ -25,7 +25,7 @@ ResourcesManagerPtr ResourceManagerModule::instance()
 
 ResourceManagerModule::~ResourceManagerModule()
 {
-    qDebug() << "Îö¹¹~ResourceManagerModule";
+    qDebug() << " 析构 ~ResourceManagerModule";
 }
 
 void ResourceManagerModule::start()
@@ -130,19 +130,18 @@ void ResourceManagerModule::freeResource(const QString &moduleName, const Resour
 
 void ResourceManagerModule::clear()
 {
-    ResourceVector::iterator itP = m_resourceArr.begin();
-
-    while (itP != m_resourceArr.end()) {
-        if (m_resourceArr.last().data()) {
-            ResourceTypePtr mpPtr         = m_resourceArr.last();
-            StringPrtMapType::iterator it = mpPtr->begin();
-            while (it != mpPtr->end()) {
-                if (it.value()) {
-                    reinterpret_cast<QObject *>(it.value())->deleteLater();
+    while (m_resourceArr.length())
+    {
+        ResourceTypePtr mpPtr = m_resourceArr.last();
+        if (!mpPtr.isNull())
+        {
+            while (mpPtr->size()) {
+                QObject *q_obj = reinterpret_cast<QObject *>(mpPtr->take(mpPtr->lastKey()));
+                if (q_obj) {
+                    q_obj->deleteLater();
                 }
-                it = mpPtr->erase(it);
             }
         }
-        ++itP;
+        m_resourceArr.removeFirst();
     }
 }
