@@ -1,0 +1,13 @@
+{
+    "root": {
+        "bussiness": [
+            "BussinessModule",
+            "TryModule"
+        ],
+        "core": [
+            "ResourceManagerModule",
+            "ModulesManager",
+            "PluginsManager"
+        ]
+    }
+}

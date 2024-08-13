@@ -1,0 +1,10 @@
+/Build
+/install
+
+/**/debug
+/**/release
+
+Makefile
+/**/Makefile
+/**/Makefile.Debug
+/**/Makefile.Release
