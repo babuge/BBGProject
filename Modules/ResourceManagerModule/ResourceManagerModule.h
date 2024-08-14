@@ -5,11 +5,11 @@
 
 #include <QReadWriteLock>
 
+#include "CommonBase.h"
+#include "ResouceLoadCommon.h"
 #include <QMap>
 #include <QSharedPointer>
 #include <QVector>
-#include "CommonBase.h"
-#include "ResouceLoadCommon.h"
 
 class ResourceManagerModule;
 
@@ -20,7 +20,6 @@ using ResourceVector      = QVector<ResourceTypePtr>;
 
 class RESOURCEMANAGERMODULE_EXPORT ResourceManagerModule : public IBaseExport, public IResouceLoad
 {
-
 public:
     virtual ~ResourceManagerModule() override;
 
@@ -44,4 +43,3 @@ private:
 
     ResourceVector m_resourceArr;
 };
-

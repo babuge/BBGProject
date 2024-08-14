@@ -1,5 +1,5 @@
-#ifndef TRYMODULE_H
-#define TRYMODULE_H
+#pragma once
+
 #include "IBaseExport.h"
 #include "TryModule_global.h"
 
@@ -8,8 +8,9 @@
 
 class TryModule;
 
-using TryModulePtr = QSharedPointer< TryModule >;
-class TRYMODULE_EXPORT TryModule : public IBaseExport {
+using TryModulePtr = QSharedPointer<TryModule>;
+class TRYMODULE_EXPORT TryModule : public IBaseExport
+{
 public:
     virtual ~TryModule() override;
 
@@ -17,13 +18,13 @@ public:
     virtual void stop() override;
     virtual void descripte() override;
 
-    static TryModulePtr   instance();
+    static TryModulePtr instance();
 
     ResourceFreeType FreeType() const override;
+
 private:
-    explicit TryModule(QObject* parent = nullptr);
+    explicit TryModule(QObject *parent = nullptr);
+
 private:
     const ResourceFreeType m_freeType;
 };
-
-#endif // TRYMODULE_H

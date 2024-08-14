@@ -1,8 +1,7 @@
-#ifndef BUSSINESSMODULE_H
-#define BUSSINESSMODULE_H
+#pragma once
 
-#include "IBaseExport.h"
 #include "BussinessModule_global.h"
+#include "IBaseExport.h"
 
 #include <QSharedPointer>
 
@@ -25,5 +24,3 @@ private:
     const ResourceFreeType m_freeType;
     GC m_gc{ this };
 };
-
-#endif // BUSSINESSMODULE_H

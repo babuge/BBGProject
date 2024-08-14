@@ -3,9 +3,9 @@
 
 #include "BussinessModule.h"
 #include "ModulesManager.h"
+#include "PluginsManager.h"
 #include "ResourceManagerModule.h"
 #include "TryModule.h"
-#include "PluginsManager.h"
 
 #include <QJsonObject>
 #include <QLibrary>
@@ -109,9 +109,9 @@ void BootstrapEntry::init()
                 QMap<QString, int>::const_iterator subIt = it->constBegin();
                 while (subIt != it->constEnd()) {
                     resources->descripte();
-                    IResouceLoad * p_resources = resources;
+                    IResouceLoad *p_resources = resources;
                     if (p_resources->loadResource(subIt.key(),
-                                                static_cast<ResourceType>(subIt.value()))) {
+                                                  static_cast<ResourceType>(subIt.value()))) {
                         qDebug() << QString("loaded bussiness: %1!").arg(subIt.key());
                     }
                     ++subIt;
@@ -126,9 +126,10 @@ void BootstrapEntry::init()
             while (it != m_bussinessLibs.constEnd()) {
                 QMap<QString, int>::const_iterator subIt = it->constBegin();
                 while (subIt != it->constEnd()) {
-                    IResouceLoad * p_resources = resources;
-                    if (auto module = p_resources->GetResource(subIt.key(), static_cast<ResourceType>(subIt.value()))) {
-                        IBaseExport* p_Export = reinterpret_cast<IBaseExport*>(module);
+                    IResouceLoad *p_resources = resources;
+                    if (auto module = p_resources->GetResource(
+                            subIt.key(), static_cast<ResourceType>(subIt.value()))) {
+                        IBaseExport *p_Export = reinterpret_cast<IBaseExport *>(module);
                         p_Export->descripte();
                         p_Export->start();
                     }

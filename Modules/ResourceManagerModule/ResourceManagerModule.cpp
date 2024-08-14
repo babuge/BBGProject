@@ -19,7 +19,8 @@ ResourceManagerModule::ResourceManagerModule(QObject *parent) : IBaseExport(pare
 
 ResourcesManagerPtr ResourceManagerModule::instance()
 {
-    static ResourcesManagerPtr main = QSharedPointer<ResourceManagerModule>(new ResourceManagerModule);
+    static ResourcesManagerPtr main =
+        QSharedPointer<ResourceManagerModule>(new ResourceManagerModule);
     return main;
 }
 
@@ -103,24 +104,25 @@ bool ResourceManagerModule::loadModuleLibrary(const QString &fileName)
 
 PtrType ResourceManagerModule::GetResource(const QString &moduleName, const ResourceType &type)
 {
-    if (m_resourceArr[static_cast<int>(type)]->contains(moduleName))
-    {
+    if (m_resourceArr[static_cast<int>(type)]->contains(moduleName)) {
         return reinterpret_cast<PtrType>(m_resourceArr[static_cast<int>(type)]->value(moduleName));
     }
     return nullptr;
 }
 
-void ResourceManagerModule::freeResource(const QString &moduleName, const ResourceSpace::ResourceType &type)
+void ResourceManagerModule::freeResource(const QString &moduleName,
+                                         const ResourceSpace::ResourceType &type)
 {
     if (m_resourceArr[static_cast<int>(type)]->contains(moduleName)) {
-        auto module =
-            reinterpret_cast<IBaseExport *>(m_resourceArr[static_cast<int>(type)]->value(moduleName));
+        auto module = reinterpret_cast<IBaseExport *>(
+            m_resourceArr[static_cast<int>(type)]->value(moduleName));
         if (module->isRunning()) {
             module->stop();
             if (module->FreeType() == ResourceFreeType::EXTRA) {
                 // If deleteLater() is called after the main event loop has stopped(mean application
                 // quit), the object will not be deleted.
-                reinterpret_cast<IBaseExport *>(m_resourceArr[static_cast<int>(type)]->value(moduleName))
+                reinterpret_cast<IBaseExport *>(
+                    m_resourceArr[static_cast<int>(type)]->value(moduleName))
                     ->deleteLater();
             }
         }
@@ -130,11 +132,9 @@ void ResourceManagerModule::freeResource(const QString &moduleName, const Resour
 
 void ResourceManagerModule::clear()
 {
-    while (m_resourceArr.length())
-    {
+    while (m_resourceArr.length()) {
         ResourceTypePtr mpPtr = m_resourceArr.last();
-        if (!mpPtr.isNull())
-        {
+        if (!mpPtr.isNull()) {
             while (mpPtr->size()) {
                 QObject *q_obj = reinterpret_cast<QObject *>(mpPtr->take(mpPtr->lastKey()));
                 if (q_obj) {

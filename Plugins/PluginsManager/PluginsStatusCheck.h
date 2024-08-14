@@ -25,4 +25,3 @@ private:
 
     int m_count{ 0 };
 };
-

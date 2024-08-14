@@ -1,5 +1,4 @@
-#ifndef MODULESMANAGER_H
-#define MODULESMANAGER_H
+#pragma once
 
 #include "IBaseExport.h"
 #include "ModulesManager_global.h"
@@ -33,5 +32,3 @@ public:
 private:
     QReadWriteLock m_lock;
 };
-
-#endif // MODULESMANAGER_H

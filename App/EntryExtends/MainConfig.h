@@ -1,5 +1,4 @@
-#ifndef MAINCONFIG_H
-#define MAINCONFIG_H
+#pragma once
 
 #include <QJsonObject>
 #include <QStringList>
@@ -28,4 +27,3 @@ private:
     QStringList m_bussiness;
 };
 
-#endif  // MAINCONFIG_H

@@ -1,8 +1,7 @@
-#ifndef PLUGINSTRUCT_H
-#define PLUGINSTRUCT_H
+#pragma once
 
-#include <QObject>
 #include <CommonBase.h>
+#include <QObject>
 
 namespace PluginSpace
 {
@@ -57,15 +56,15 @@ public:
     }
 
     template <class T>
-    T getObjPtr() {
-        return reinterpret_cast<T*>(m_ptr);
+    T getObjPtr()
+    {
+        return reinterpret_cast<T *>(m_ptr);
     }
 
     unsigned char status() const
     {
         return static_cast<unsigned char>(m_status);
     }
-
 
 private:
     LifeCycle m_status;
@@ -75,5 +74,3 @@ private:
 #pragma pack()
 
 }  // namespace PluginSpace
-
-#endif  // PLUGINSTRUCT_H
