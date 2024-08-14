@@ -24,10 +24,13 @@ BootstrapEntry::BootstrapEntry(QObject *parent) : QObject(parent)
 
 BootstrapEntry::~BootstrapEntry()
 {
-    qDebug() << "析构~BootstrapEntry";
+    QElapsedTimer elapsed;
+    elapsed.start();
+    qDebug() << "析构~BootstrapEntry-start: 0 ms";
     if (isRunning()) {
         stop();
     }
+    qDebug() << "析构~BootstrapEntry-end:" << elapsed.elapsed() << "ms";
 }
 
 void BootstrapEntry::start()
