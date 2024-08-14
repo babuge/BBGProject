@@ -11,7 +11,6 @@ add_library(ResourceManagerModule SHARED
     ResourceManagerModule.h
     ResourceManagerModule_global.h
     ResourceManagerModule_zh_CN.ts
-
 )
 
 target_link_libraries(ResourceManagerModule PRIVATE Qt${QT_VERSION_MAJOR}::Core)

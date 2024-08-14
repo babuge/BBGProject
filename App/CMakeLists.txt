@@ -1,5 +1,3 @@
-
-
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
@@ -61,9 +59,6 @@ target_link_libraries(BBGProject
     PRIVATE ${BUILD_SHARED_LIBS_DIR}/libModulesManager.dll
     PRIVATE ${BUILD_SHARED_LIBS_DIR}/libResourceManagerModule.dll
 )
-
-message(---linkdir--${BUILD_SHARED_LIBS_DIR})
-
 
 set_target_properties(BBGProject PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
