@@ -4,7 +4,6 @@
 #include <QReadLocker>
 #include <QWriteLocker>
 
-
 static QMap<QString, void *> g_golbalLibraryMap;
 
 ModulesManager::ModulesManager(QObject *parent) : IBaseExport(parent) {}

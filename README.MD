@@ -17,6 +17,11 @@
            或者将lib目录下*.dll拷贝到执行文件同级目录
            将.config.json拷贝到执行文件目录下
     4. 项目基于C++11，Qt6
+    5. QtCreator开发前配置：
+        a. 配置llvm-format
+        b. 设置git本地仓库和远端仓库
+        c. 设置文件名大小区分
+        d. 设置Use "#pragma once"
 
 #### todo
 1.  cmake 编译工程

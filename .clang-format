@@ -1,6 +1,8 @@
-#------------------------------------------------------------------------------ Configurable Format Style Options ------------------------------------------------------------------------------
+﻿#------------------------------------------------------------------------------ Configurable Format Style Options ------------------------------------------------------------------------------
 #
 #LLVM版本: 5.0
+#创建时间: 2024-08-14
+#修改时间: 2024-08-14
 #说明: 字段属性参照llvm-format官方文档(clang.llvm.org/docs/ClangFormatStyleOptons.html)。
 #
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -98,7 +100,7 @@ DisableFormat: false
 # 自动检测函数的调用和定义是否被格式为每行一个参数(Experimental)
 ExperimentalAutoDetectBinPacking: false
 # 需要被解读为foreach循环而不是函数调用的宏
-ForEachMacros: [ forever, foreach, Q_FOREACH, BOOST_FOREACH ]
+ForEachMacros: [ foreach, Q_FOREACH, BOOST_FOREACH ]
 # 对#include进行排序,匹配了某则正则表达式的#include拥有对应的优先级,匹配不到的则默认优先级为INT_MAX(优先级越小排序越靠前),可以定义负数优先
 # 级从而保证某些#include永远在最前面
 IncludeCategories:
@@ -174,5 +176,4 @@ Standard: Cpp11
 TabWidth: 4
 # 使用tab字符,Never,ForIndentation,ForConinuationAndIndentation,Always
 UseTab: Never
-
 

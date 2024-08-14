@@ -4,7 +4,8 @@
 using PluginsStatusPtr = QSharedPointer<PluginSpace::PluginStatus>;
 extern QMap<QString, PluginsStatusPtr> g_golbalPluginsStatus;
 
-PluginsStatusCheck::PluginsStatusCheck(QObject *parent) : QThread(parent) {
+PluginsStatusCheck::PluginsStatusCheck(QObject *parent) : QThread(parent)
+{
     setObjectName("PluginManager_qt_thread");
 }
 

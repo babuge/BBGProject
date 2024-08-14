@@ -1,5 +1,4 @@
-#ifndef BOOTSTRAPENTRY_H
-#define BOOTSTRAPENTRY_H
+#pragma once
 
 #include <QJsonObject>
 #include <QMap>
@@ -53,4 +52,3 @@ private:
     MainConfig m_config;
 };
 
-#endif  // BOOTSTRAPENTRY_H

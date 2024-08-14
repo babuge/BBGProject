@@ -1,5 +1,4 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include "EntryExtends/BootstrapEntry.h"
 
@@ -25,4 +24,4 @@ private:
     Ui::MainWindow *ui;
     BootstrapEntry m_bootstrap;
 };
-#endif // MAINWINDOW_H
+

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "IBaseExport.h"
-#include "PluginsStatusCheck.h"
 #include "PluginsManager_global.h"
+#include "PluginsStatusCheck.h"
 
 #include <QMap>
 #include <QObject>
@@ -22,7 +22,6 @@ class PLUGINSMANAGER_EXPORT PluginsManager : public IBaseExport
 {
     Q_OBJECT
 public:
-
     static QReadWriteLock m_rwLock;
     static PluginsManagerPtr instance();
 
