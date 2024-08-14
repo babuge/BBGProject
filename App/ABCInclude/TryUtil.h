@@ -77,14 +77,18 @@ public:
 public:
     static bool GetLibHandle(const QString &name, PtrType &out)
     {
-        QString file = name + QString::fromLatin1(dllExport);
-        QString dirStr =
+        QString str_fileName = name + QString::fromLatin1(dllExport);
+        QString str_filePath =
             QCoreApplication::applicationDirPath() + QDir::separator() + "lib" + QDir::separator();
 
-        QDir dir(dirStr);
-        if (dir.exists()) {
-            ScopedResource<QLibrary, QString> lib(dirStr + file);
-            if (!lib->isLibrary(file)) {
+        QFileInfo file_Name(str_filePath + str_fileName);
+        if (!file_Name.isExecutable()) {
+            str_fileName = "lib" + str_fileName;
+            file_Name.setFile(str_filePath + str_fileName);
+        }
+        if (!file_Name.isExecutable()) {
+            ScopedResource<QLibrary, QString> lib(file_Name.filePath());
+            if (!lib->isLibrary(file_Name.fileName())) {
                 return false;
             }
             if (!lib->load()) {
@@ -142,7 +146,6 @@ public:
     }
 
 private:
-    TryUtil() = delete;
+    TryUtil()                = delete;
     TryUtil(const TryUtil &) = delete;
 };
-
