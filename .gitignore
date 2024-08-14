@@ -8,3 +8,4 @@ Makefile
 /**/Makefile
 /**/Makefile.Debug
 /**/Makefile.Release
+*.pro.user*
