@@ -19,6 +19,7 @@ execute_process(
     COMMAND ${CMAKE_COMMAND} -E make_directory ${BBGProject_SOURCE_DIR}/Build/App
     COMMAND ${CMAKE_COMMAND} -E make_directory ${BBGProject_SOURCE_DIR}/Build/App/lib
     COMMAND ${CMAKE_COMMAND} -E copy ${BBGProject_SOURCE_DIR}/.config.json ${BBGProject_SOURCE_DIR}/Build/App/
+    COMMAND ${CMAKE_COMMAND} -E copy_directory ${BBGProject_SOURCE_DIR}/QtLibs/ ${BBGProject_SOURCE_DIR}/Build/App/lib/
 )
 
 set(CMAKE_PREFIX_PATH ${BBGProject_SOURCE_DIR}/Build)
