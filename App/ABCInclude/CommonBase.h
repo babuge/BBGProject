@@ -29,9 +29,5 @@
 
 #include <stdlib.h>
 
-// 定义指针类型
-#if defined(__cplusplus) && __cplusplus >= 201103L
-    typedef std::nullptr_t PtrType;
-#else
-    typedef long int * PtrType;
-#endif
+// 扩展定义指针类型
+typedef long int *PtrType;
