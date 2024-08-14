@@ -4,8 +4,9 @@
 /**/debug
 /**/release
 
+*.pro.user
 Makefile
 /**/Makefile
 /**/Makefile.Debug
 /**/Makefile.Release
-*.pro.user*
+/*.pro.user
