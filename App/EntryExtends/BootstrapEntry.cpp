@@ -10,6 +10,7 @@
 #include <QJsonObject>
 #include <QLibrary>
 #include <QTimer>
+#include <QTime>
 #include <QVariantMap>
 
 #include <QDebug>
@@ -24,7 +25,11 @@ BootstrapEntry::BootstrapEntry(QObject *parent) : QObject(parent)
 
 BootstrapEntry::~BootstrapEntry()
 {
+#if QT_MAJOR_VERSION == 6
     QElapsedTimer elapsed;
+#else
+    QTime elapsed;
+#endif
     elapsed.start();
     qDebug() << "析构~BootstrapEntry-start: 0 ms";
     if (isRunning()) {
@@ -69,13 +74,13 @@ void BootstrapEntry::initBoostStrap()
     cores.removeDuplicates();
     m_coreLibs = cores.toVector();
 
-    QMap<QString, int> moduleM;
+    QMap<QString, int> mp_Module;
     QStringList array = m_config.bussiness();
     for (int i = 0; i < array.size(); ++i) {
-        moduleM.insert(array.at(i), static_cast<int>(ResourceType::MODULE));
+        mp_Module.insert(array.at(i), static_cast<int>(ResourceType::MODULE));
     }
-    if (!moduleM.isEmpty()) {
-        TryUtil::VectorUniqueAdd<QMap<QString, int>>(m_bussinessLibs, moduleM);
+    if (!mp_Module.isEmpty()) {
+        TryUtil::VectorUniqueAdd<QMap<QString, int>>(m_bussinessLibs, mp_Module);
     }
 }
 
