@@ -19,4 +19,4 @@ Makefile
 /**/moc_*.h
 /**/moc_*.cpp
 /**/ui_*.h
-
+CMakeCache.txt.prev
