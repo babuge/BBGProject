@@ -36,6 +36,7 @@
 #include <QLibrary>
 #include <QList>
 #include <QVector>
+#include <QDebug>
 
 #include "CommonBase.h"
 
@@ -86,7 +87,7 @@ public:
             str_fileName = "lib" + str_fileName;
             file_Name.setFile(str_filePath + str_fileName);
         }
-        if (!file_Name.isExecutable()) {
+        if (file_Name.isExecutable()) {
             ScopedResource<QLibrary, QString> lib(file_Name.filePath());
             if (!lib->isLibrary(file_Name.fileName())) {
                 return false;

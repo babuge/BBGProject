@@ -10,6 +10,7 @@
 #include <QJsonObject>
 #include <QLibrary>
 #include <QTimer>
+#include <QTime>
 #include <QVariantMap>
 
 #include <QDebug>
@@ -24,7 +25,11 @@ BootstrapEntry::BootstrapEntry(QObject *parent) : QObject(parent)
 
 BootstrapEntry::~BootstrapEntry()
 {
+#if QT_MAJOR_VERSION == 6
     QElapsedTimer elapsed;
+#else
+    QTime elapsed;
+#endif
     elapsed.start();
     qDebug() << "析构~BootstrapEntry-start: 0 ms";
     if (isRunning()) {
