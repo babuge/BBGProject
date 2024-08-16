@@ -84,9 +84,8 @@ void PluginsManager::clear()
         if (it.value()->isUnInstalled()) {
             qDebug() << "remove plugin: " << it.key();
             it.value()->deleteLater();
-            QString str_Key = it.key();
-            ++it;
-            g_golbalPluginsStatus.remove(str_Key);
+            // it = g_golbalPluginsStatus.earse(it);
+            g_golbalPluginsStatus.remove((it++).key());
         }
         else {
             ++it;

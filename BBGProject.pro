@@ -21,7 +21,7 @@ win32-msvc{
     system($${path})
 }
 
-unix:!mac{
+unix{
     path = "cp $$system_path($${ProjectRootDir}/.config.json) $$system_path($${OUTDIR}/)"
     system("$${path}")
 }

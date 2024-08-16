@@ -79,5 +79,5 @@ unix:!mac{
         item = $${var}
         LIBS += -L$${OUTDIR}/lib/ $${item}
     }
-#    QMAKE_LFLAGS += -Wl,--rpath=\'$${OUTDIR}/lib\'
+    #QMAKE_LFLAGS += -Wl,--rpath=\'$${OUTDIR}/lib\'
 }

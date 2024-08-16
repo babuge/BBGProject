@@ -13,3 +13,10 @@ Makefile
 /*.user
 /CMakeFiles
 /.cmake
+/**/*.o
+/**/*.qm
+/**/qrc_qmake_qmake_qm_files.cpp
+/**/moc_*.h
+/**/moc_*.cpp
+/**/ui_*.h
+CMakeCache.txt.prev

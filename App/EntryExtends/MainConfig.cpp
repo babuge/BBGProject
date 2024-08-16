@@ -1,6 +1,7 @@
 #include "MainConfig.h"
 
 #include <QJsonArray>
+#include <QVariant>
 
 MainConfig::MainConfig() {}
 
