@@ -9,8 +9,8 @@
 
 #include <QJsonObject>
 #include <QLibrary>
-#include <QTimer>
 #include <QTime>
+#include <QTimer>
 #include <QVariantMap>
 
 #include <QDebug>
@@ -25,7 +25,7 @@ BootstrapEntry::BootstrapEntry(QObject *parent) : QObject(parent)
 
 BootstrapEntry::~BootstrapEntry()
 {
-#if QT_MAJOR_VERSION == 6
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     QElapsedTimer elapsed;
 #else
     QTime elapsed;
