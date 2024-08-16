@@ -30,13 +30,13 @@
 #include <QByteArray>
 #include <QCoreApplication>
 #include <QDataStream>
+#include <QDebug>
 #include <QDir>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLibrary>
 #include <QList>
 #include <QVector>
-#include <QDebug>
 
 #include "CommonBase.h"
 
@@ -83,11 +83,11 @@ public:
             QCoreApplication::applicationDirPath() + QDir::separator() + "lib" + QDir::separator();
 
         QFileInfo file_Name(str_filePath + str_fileName);
-        if (!file_Name.isExecutable()) {
+        if (!file_Name.isFile()) {
             str_fileName = "lib" + str_fileName;
             file_Name.setFile(str_filePath + str_fileName);
         }
-        if (file_Name.isExecutable()) {
+        if (file_Name.isFile()) {
             ScopedResource<QLibrary, QString> lib(file_Name.filePath());
             if (!lib->isLibrary(file_Name.fileName())) {
                 return false;
