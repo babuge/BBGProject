@@ -1,0 +1,10 @@
+# Comments have a '#' at the beginning of the line.
+#
+# Tag		VR	Name			VM	Version
+#
+(0000,0000)	UL	CommandGroupLength	1	SOME
+(0000,0002)	UI	AffectedSOPClassUID	1	SOME
+(0000,0003)	UI	RequestedSOPClassUID	1	SOME
+(0000,0100)	US	CommandField	1	SOME
+(0000,0110)	US	MessageID	1	SOME
+(0000,0120)	US	MessageIDBeingRespondedTo	1	SOME
