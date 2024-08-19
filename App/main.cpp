@@ -1,5 +1,7 @@
+#include "GloabalDef.h"
 #include "MainWindow.h"
 #include <QApplication>
+#include <QFile>
 #include <QLocale>
 #include <QTranslator>
 
@@ -18,6 +20,7 @@ int main(int argc, char *argv[])
     }
 
     MainWindow w;
+    LOAD_QSS(Global_Space::STYLE_QSS_FILE_PATH);
     w.show();
     return a.exec();
 }

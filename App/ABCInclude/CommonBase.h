@@ -31,3 +31,16 @@
 
 // 扩展定义指针类型
 typedef long int *PtrType;
+
+// 释放内存
+#define RELESE(p_TypeName)                                                                         \
+    if (p_TypeName != nullptr) {                                                                   \
+        delete p_TypeName;                                                                         \
+        p_TypeName = nullptr;                                                                      \
+    }
+
+#define RELESEARR(p_ArrName)                                                                       \
+    if (p_ArrName != nullptr) {                                                                    \
+        delete[] p_ArrName;                                                                        \
+        p_ArrName = nullptr;                                                                       \
+    }

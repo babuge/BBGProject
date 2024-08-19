@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/qss">
+        <file>res/qss/theme_win.qss</file>
+        <file>res/qss/stylesheet.qss</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file>res/img/close_hover.png</file>
+        <file>res/img/close_normal.png</file>
+        <file>res/img/left_arrow_hover.png</file>
+        <file>res/img/left_arrow_normal.png</file>
+        <file>res/img/left_arrow_pressed.png</file>
+        <file>res/img/max_hover.png</file>
+        <file>res/img/max_normal.png</file>
+        <file>res/img/min_hover.png</file>
+        <file>res/img/min_normal.png</file>
+        <file>res/img/normal_hover.png</file>
+        <file>res/img/normal_normal.png</file>
+        <file>res/img/right_arrow_hover.png</file>
+        <file>res/img/right_arrow_normal.png</file>
+        <file>res/img/right_arrow_pressed.png</file>
+        <file>res/img/babuge.png</file>
+    </qresource>
+    <qresource prefix="/ts">
+        <file>res/ts/App_zh_CN.ts</file>
+    </qresource>
+    <qresource prefix="/dict">
+        <file>res/dict/Protocol.json</file>
+        <file>res/dict/some.dic</file>
+    </qresource>
+</RCC>
