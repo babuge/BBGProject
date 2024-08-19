@@ -15,11 +15,12 @@
 
 #include <QDebug>
 
-BootstrapEntry::BootstrapEntry(QObject *parent) : QObject(parent)
+BootstrapEntry::BootstrapEntry(QObject *parent)
+    : QObject(parent)
 {
     m_coreHandle.clear();
     m_coreLibs.clear();
-    m_config.setCore({ "ResourceManagerModule", "ModulesManager", "PluginsManager" });
+    m_config.setCore({ "ResourceManagerModule", "ModulesManager" });  //, "PluginsManager" });
     m_config.setBussiness({});
 }
 
@@ -60,10 +61,30 @@ void BootstrapEntry::stop()
     }
 }
 
-void BootstrapEntry::setConfig(const QJsonObject &json)
+void BootstrapEntry::InitConfig()
 {
-    if (!json.empty()) {
-        m_config.read(json);
+    QString path = QDir::current().path() + QDir::separator() + ".config.json";
+    QFile file(path);
+    QJsonObject obj;
+    if (file.exists()) {
+        obj = TryUtil::ReadJson(path, obj);
+        if (!obj.isEmpty()) {
+        }
+        qDebug() << "json: " << obj;
+    }
+
+    path = QDir::current().path() + QDir::separator()
+           + QString(".config%1.json")
+                 .arg(QDateTime::currentDateTime().toString("yyyy_MM_dd_hh_mm_ss_zzz"));
+    if (TryUtil::WriteJson(path, obj)) {
+        qDebug() << "WriteJson done!";
+    }
+    else {
+        qDebug() << "WriteJson failed!";
+    }
+
+    if (!obj.empty()) {
+        m_config.read(obj);
     }
     initBoostStrap();
 }

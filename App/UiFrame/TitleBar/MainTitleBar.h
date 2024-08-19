@@ -15,32 +15,39 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * 文件名称 ：   CommonBase.h
+ * 文件名称 ：   MainTitleBar.h
  * 文件标识 ：
- * 摘 要 ：     兼容性通用头文件
+ * 摘 要 ：     Window Main title头文件
  * 当前版本 ：   v0.01.0
  * 作 者 ：     babuge
  * 完成日期 ：
  * 取代版本 ：   v0.0.0
  * 原作者   ：  babuge
- * 完成日期 ：  2024/08/12
+ * 完成日期 ：  2024/08/19
  ******************************************************************************/
 #pragma once
 
-#include <stdlib.h>
+#include "TitleBar.h"
+#include <QWidget>
 
-// 扩展定义指针类型
-typedef long int *PtrType;
+namespace Ui
+{
+class MainTitleBar;
+}
 
-// 释放内存
-#define RELESE(p_TypeName)                                                                         \
-    if (p_TypeName != nullptr) {                                                                   \
-        delete p_TypeName;                                                                         \
-        p_TypeName = nullptr;                                                                      \
-    }
+class MainTitleBar : public TitleBar
+{
+    Q_OBJECT
 
-#define RELESEARR(p_ArrName)                                                                       \
-    if (p_ArrName != nullptr) {                                                                    \
-        delete[] p_ArrName;                                                                        \
-        p_ArrName = nullptr;                                                                       \
-    }
+public:
+    explicit MainTitleBar(QWidget *parent = 0);
+    ~MainTitleBar();
+
+private Q_SLOTS:
+    void Slot_CloseClicked();
+    void Slot_WindMinClicked();
+    void Slot_WindMaxClicked();
+
+private:
+    Ui::MainTitleBar *ui;
+};

@@ -9,6 +9,8 @@ CONFIG -= c++17
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+include($$PWD/UiFrame/UiFrame.pri)
+
 SOURCES += \
     main.cpp \
     MainWindow.cpp \
@@ -18,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     ABCInclude/CommonBase.h \
+    ABCInclude/GlobalDef.h \
     ABCInclude/IBaseExport.h \
     ABCInclude/ResouceLoadCommon.h \
     MainWindow.h \
@@ -31,6 +34,7 @@ FORMS += \
 
 TRANSLATIONS += \
     App_zh_CN.ts
+
 CONFIG += lrelease
 CONFIG += embed_translations
 
@@ -46,6 +50,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 INCLUDEPATH += \
     $$PWD/ABCInclude \
+    $$PWD/UiFrame \
     $${ProjectRootDir}/Modules/BussinessModule \
     $${ProjectRootDir}/Modules/ModulesManager \
     $${ProjectRootDir}/Modules/ResourceManagerModule \
@@ -81,3 +86,7 @@ unix:!mac{
     }
     #QMAKE_LFLAGS += -Wl,--rpath=\'$${OUTDIR}/lib\'
 }
+
+RESOURCES += \
+    res.qrc
+

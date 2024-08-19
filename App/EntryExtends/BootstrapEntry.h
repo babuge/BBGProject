@@ -51,7 +51,7 @@ public:
     explicit BootstrapEntry(QObject *parent = nullptr);
     virtual ~BootstrapEntry();
 
-    void setConfig(const QJsonObject &json);
+    void InitConfig();
 
     void restart();
     void start();
