@@ -7,17 +7,20 @@
 #include <QPainter>
 #include <QPixmap>
 
+namespace BtnICON_Space
+{
+const int S32_ICON_WH = 20;  // 图标宽高
+}  // namespace BtnICON_Space
+
 CBtnOnlyIcon::CBtnOnlyIcon(QWidget *parent)
     : QPushButton(parent)
-    , m_IconSize(20, 20)
+    , m_IconSize(BtnICON_Space::S32_ICON_WH, BtnICON_Space::S32_ICON_WH)
     , m_blChanged(true)
     , m_emState(IconType::em_normal)
 
 {
-    // autoFillBackground();
-    // setPalette(Qt::transparent);
-    setIconSize(QSize(20, 20));
-    setFixedSize(20, 20);
+    setIconSize(QSize(BtnICON_Space::S32_ICON_WH, BtnICON_Space::S32_ICON_WH));
+    setFixedSize(BtnICON_Space::S32_ICON_WH, BtnICON_Space::S32_ICON_WH);
     connect(this, &QPushButton::clicked, this, &CBtnOnlyIcon::Slot_Clicked);
 }
 
