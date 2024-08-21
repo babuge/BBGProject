@@ -26,8 +26,8 @@ jobs:
     - name: Install Qt5/Qt6 (yaqti)
       uses: WillBrennan/yaqti@2021.07.29
       with:
-        # The Qt version to install , 6.2.1 or 5.12.2
-        version: '6.2.1' 
+        # The Qt version to install , 6.2.0 or 5.12.2 ...
+        version: '6.2.0' 
         # install os; linux, windows, or mac
         os: linux
         # what platform are you installing for? desktop, winrt, android, or ios
