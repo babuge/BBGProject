@@ -1,38 +1,44 @@
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-include_directories(${PROJECT_SOURCE_DIR}/App/ABCInclude)
-include_directories(${PROJECT_SOURCE_DIR}/App/EntryExtends)
-include_directories(${PROJECT_SOURCE_DIR}/Modules/ModulesManager)
-include_directories(${PROJECT_SOURCE_DIR}/Modules/BussinessModule)
-include_directories(${PROJECT_SOURCE_DIR}/Modules/ResourceManagerModule)
-include_directories(${PROJECT_SOURCE_DIR}/Modules/TryModule)
-include_directories(${PROJECT_SOURCE_DIR}/Plugins/PluginsManager)
+project(App VERSION 0.1 LANGUAGES CXX)
+include_directories(${PROJECT_SOURCE_DIR}/ABCInclude)
+include_directories(${PROJECT_SOURCE_DIR}/EntryExtends)
+include_directories(${PROJECT_SOURCE_DIR}/UiFrame)
+# 导入库头文件
+include_directories(${PROJECT_SOURCE_DIR}/../Modules/ModulesManager)
+include_directories(${PROJECT_SOURCE_DIR}/../Modules/BussinessModule)
+include_directories(${PROJECT_SOURCE_DIR}/../Modules/ResourceManagerModule)
+include_directories(${PROJECT_SOURCE_DIR}/../Modules/TryModule)
+include_directories(${PROJECT_SOURCE_DIR}/../Plugins/PluginsManager)
+message(${PROJECT_SOURCE_DIR}/../Plugins/PluginsManager)
 
-
+source_group("App")
 set(PROJECT_SOURCES
-        ABCInclude/CommonBase.h
-        ABCInclude/FramWorkExtend.h
-        ABCInclude/IBaseExport.h
-        ABCInclude/ResouceLoadCommon.h
-        ABCInclude/TryUtil.h
-        ABCInclude/GlobalDef.h
-        EntryExtends/BootstrapEntry.cpp
-        EntryExtends/BootstrapEntry.h
-        EntryExtends/MainConfig.cpp
-        EntryExtends/MainConfig.h
-        App_zh_CN.ts
-        main.cpp
-        MainWindow.cpp
-        MainWindow.h
-        MainWindow.ui
+        ${PROJECT_SOURCE_DIR}/ABCInclude/CommonBase.h
+        ${PROJECT_SOURCE_DIR}/ABCInclude/FramWorkExtend.h
+        ${PROJECT_SOURCE_DIR}/ABCInclude/IBaseExport.h
+        ${PROJECT_SOURCE_DIR}/ABCInclude/ResouceLoadCommon.h
+        ${PROJECT_SOURCE_DIR}/ABCInclude/TryUtil.h
+        ${PROJECT_SOURCE_DIR}/ABCInclude/GlobalDef.h
+        ${PROJECT_SOURCE_DIR}/EntryExtends/BootstrapEntry.cpp
+        ${PROJECT_SOURCE_DIR}/EntryExtends/BootstrapEntry.h
+        ${PROJECT_SOURCE_DIR}/EntryExtends/MainConfig.cpp
+        ${PROJECT_SOURCE_DIR}/EntryExtends/MainConfig.h
+        ${PROJECT_SOURCE_DIR}/App_zh_CN.ts
+        ${PROJECT_SOURCE_DIR}/main.cpp
+        ${PROJECT_SOURCE_DIR}/MainWindow.cpp
+        ${PROJECT_SOURCE_DIR}/MainWindow.h
+        ${PROJECT_SOURCE_DIR}/MainWindow.ui
 )
-
+# add subDir, resources
+add_subdirectory(${PROJECT_SOURCE_DIR}/UiFrame)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(BBGProject
+    qt_add_resources(QRC_TRAGET ${PROJECT_SOURCE_DIR}/res.qrc)
+    qt_add_executable(App
         MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
+        ${PROJECT_SOURCES} ${QRC_TRAGET}
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET cmake_ui APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -40,20 +46,20 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(BBGProject SHARED
+        add_library(App SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(BBGProject
+        add_executable(App
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
 if(WIN32)
-    target_link_libraries(BBGProject
+    target_link_libraries(App
         PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
         PRIVATE ${BUILD_SHARED_LIBS_DIR}/libgtest.dll
         PRIVATE ${BUILD_SHARED_LIBS_DIR}/libPluginsManager.dll
@@ -63,7 +69,7 @@ if(WIN32)
         PRIVATE ${BUILD_SHARED_LIBS_DIR}/libResourceManagerModule.dll
     )
 elseif(UNIX)
-    target_link_libraries(BBGProject
+    target_link_libraries(App
         PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
         PRIVATE ${BUILD_SHARED_LIBS_DIR}/libgtest.so
         PRIVATE ${BUILD_SHARED_LIBS_DIR}/libPluginsManager.so
@@ -74,7 +80,7 @@ elseif(UNIX)
     )
 endif()
 
-set_target_properties(BBGProject PROPERTIES
+set_target_properties(App PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -82,10 +88,10 @@ set_target_properties(BBGProject PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
-install(TARGETS BBGProject
+install(TARGETS App
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(BBGProject)
+    qt_finalize_executable(App)
 endif()
