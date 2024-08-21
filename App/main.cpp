@@ -1,4 +1,4 @@
-#include "GloabalDef.h"
+#include "GlobalDef.h"
 #include "MainWindow.h"
 #include <QApplication>
 #include <QFile>
