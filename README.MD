@@ -24,7 +24,6 @@
 ├─.gitignore
 ├─BBGProject.pro
 ├─CMakeLists.txt
-├─cp.py
 ├─LICENSE
 ├─moduleIncludes.pri
 ├─README.MD
