@@ -34,7 +34,8 @@ jobs:
         platform: desktop
         # what optional Qt modules to install? qtcharts, qtnetworkauth ect...
         # ['debug_info', 'gcc_64', 'qtcharts', 'qtdatavis3d', 'qtnetworkauth', 'qtpurchasing', 'qtscript', 'qtvirtualkeyboard', 'qtwebengine', 'qtwebglplugin']
-        modules: 'qtwebengine,qtcharts,gcc_64'
+        modules: "gcc_64"
+      
         
     - uses: actions/checkout@v4
 
