@@ -23,15 +23,14 @@ elseif(UNIX)
     set(DIR_3RDPARTY_GTEST_LIB ${DIR_3RDPARTY_GTEST}/lib/linux/libgtest.so)
 endif()
 
-execute_process(
-    COMMAND ${CMAKE_COMMAND} -E copy ${DIR_3RDPARTY_GTEST_LIB} ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/lib/
-)
 
 execute_process(
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/Build
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/Build/App
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/lib
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/.config.json ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/
+    # copy 3rdparty libraray
+    COMMAND ${CMAKE_COMMAND} -E copy ${DIR_3RDPARTY_GTEST_LIB} ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/lib/
 )
 
 set(CMAKE_LIBRARY_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/lib)
