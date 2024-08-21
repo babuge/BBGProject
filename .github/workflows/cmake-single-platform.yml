@@ -27,27 +27,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v4
-      with:
-        version: '6.2.0'
-        host: 'linux'
-        target: 'desktop'
-        arch: ''
-        dir: '${{ github.workspace }}/example/'
-        install-deps: 'true'
-        modules: 'qtcharts qtwebengine'
-        archives: 'qtbase qtsvg'
-        cache: 'false'
-        cache-key-prefix: 'install-qt-action'
-        setup-python: 'true'
-        tools: 'tools_cmake'
-        set-env: 'true'
-        tools-only: 'false'
-        aqtversion: '==3.1.*'
-        py7zrversion: '==0.20.*'
-        extra: '--external 7z'
-      
+    # - name: Install Qt
+    #   uses: jurplel/install-qt-action@v4
+    #   with:
+    #     version: '6.2.0'
+    #     host: 'linux'
+    #     target: 'desktop'
+    #     arch: ''
+    #     dir: '${{ github.workspace }}/example/'
+    #     install-deps: 'true'
+    #     modules: 'qtcharts qtwebengine'
+    #     archives: 'qtbase qtsvg'
+    #     cache: 'false'
+    #     cache-key-prefix: 'install-qt-action'
+    #     setup-python: 'true'
+    #     tools: 'tools_cmake'
+    #     set-env: 'true'
+    #     tools-only: 'false'
+    #     aqtversion: '==3.1.*'
+    #     py7zrversion: '==0.20.*'
+    #     extra: ''
+
+    - name: Print list
+      run: aqt list-tool linux desktop
         
     - uses: actions/checkout@v4
 
