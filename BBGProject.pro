@@ -18,7 +18,6 @@ DISTFILES += \
 
 win32-msvc{
     path = "copy /y $$system_path($${ProjectRootDir}/.config.json) $$system_path($${OUTDIR}/)"
-    system($${path})
 }
 
 unix{
