@@ -98,8 +98,12 @@ void CBtnOnlyIcon::paintEvent(QPaintEvent * /*pEvent*/)
 
     painter.drawPixmap(rt_position, pixmap);
 }
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    void CBtnOnlyIcon::enterEvent(QEnterEvent * /*event*/)
+#else
+    void CBtnOnlyIcon::enterEvent(QEvent * /*event*/)
+#endif
 
-void CBtnOnlyIcon::enterEvent(QEnterEvent * /*event*/)
 {
     m_emState |= IconType::em_hover;
     m_blChanged = true;
