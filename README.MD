@@ -6,6 +6,19 @@
 
 ## 项目结构
 ```
+├─App
+|  ├─UiFrame
+|  ├─res
+|  ├─EntryExtends
+|  ├─ABCInclude
+├─Modules
+|    ├─TryModule
+|    ├─ResourceManagerModule
+|    ├─ModulesManager
+|    ├─BussinessModule
+├─Plugins
+|    ├─PluginsManager
+├─3rdparty
 ├─.clang-format
 ├─.config.json
 ├─.gitignore
@@ -15,19 +28,6 @@
 ├─LICENSE
 ├─moduleIncludes.pri
 ├─README.MD
-├─Plugins
-|    ├─PluginsManager
-├─Modules
-|    ├─TryModule
-|    ├─ResourceManagerModule
-|    ├─ModulesManager
-|    ├─BussinessModule
-├─App
-|  ├─UiFrame
-|  ├─res
-|  ├─EntryExtends
-|  ├─ABCInclude
-├─3rdparty
 ```
 ## 界面展示
 
