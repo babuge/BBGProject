@@ -21,7 +21,11 @@ void TitleBar::mousePressEvent(QMouseEvent *event)
         m_blPress = true;
     }
     if (m_pParentWidget) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         m_PointMove = event->globalPosition().toPoint() - m_pParentWidget->pos();
+#else
+        m_PointMove = event->globalPos() - m_pParentWidget->pos();
+#endif
     }
 }
 
@@ -35,7 +39,12 @@ void TitleBar::mouseReleaseEvent(QMouseEvent *)
 void TitleBar::mouseMoveEvent(QMouseEvent *event)
 {
     if (m_blPress && m_pParentWidget) {
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         QPoint movePos = event->globalPosition().toPoint();
+#else
+        QPoint movePos = event->globalPos();
+#endif
         m_pParentWidget->move(movePos - m_PointMove);
     }
 }

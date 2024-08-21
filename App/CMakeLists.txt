@@ -1,41 +1,41 @@
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-project(App VERSION 0.1 LANGUAGES CXX)
-include_directories(${PROJECT_SOURCE_DIR}/ABCInclude)
-include_directories(${PROJECT_SOURCE_DIR}/EntryExtends)
-include_directories(${PROJECT_SOURCE_DIR}/UiFrame)
+set(APP_DIR ${PROJECT_SOURCE_DIR}/App)
+include_directories(${APP_DIR}/ABCInclude)
+include_directories(${APP_DIR}/EntryExtends)
+include_directories(${APP_DIR}/UiFrame)
 # 导入库头文件
-include_directories(${PROJECT_SOURCE_DIR}/../Modules/ModulesManager)
-include_directories(${PROJECT_SOURCE_DIR}/../Modules/BussinessModule)
-include_directories(${PROJECT_SOURCE_DIR}/../Modules/ResourceManagerModule)
-include_directories(${PROJECT_SOURCE_DIR}/../Modules/TryModule)
-include_directories(${PROJECT_SOURCE_DIR}/../Plugins/PluginsManager)
-message(${PROJECT_SOURCE_DIR}/../Plugins/PluginsManager)
+include_directories(${APP_DIR}/../Modules/ModulesManager)
+include_directories(${APP_DIR}/../Modules/BussinessModule)
+include_directories(${APP_DIR}/../Modules/ResourceManagerModule)
+include_directories(${APP_DIR}/../Modules/TryModule)
+include_directories(${APP_DIR}/../Plugins/PluginsManager)
 
 source_group("App")
 set(PROJECT_SOURCES
-        ${PROJECT_SOURCE_DIR}/ABCInclude/CommonBase.h
-        ${PROJECT_SOURCE_DIR}/ABCInclude/FramWorkExtend.h
-        ${PROJECT_SOURCE_DIR}/ABCInclude/IBaseExport.h
-        ${PROJECT_SOURCE_DIR}/ABCInclude/ResouceLoadCommon.h
-        ${PROJECT_SOURCE_DIR}/ABCInclude/TryUtil.h
-        ${PROJECT_SOURCE_DIR}/ABCInclude/GlobalDef.h
-        ${PROJECT_SOURCE_DIR}/EntryExtends/BootstrapEntry.cpp
-        ${PROJECT_SOURCE_DIR}/EntryExtends/BootstrapEntry.h
-        ${PROJECT_SOURCE_DIR}/EntryExtends/MainConfig.cpp
-        ${PROJECT_SOURCE_DIR}/EntryExtends/MainConfig.h
-        ${PROJECT_SOURCE_DIR}/App_zh_CN.ts
-        ${PROJECT_SOURCE_DIR}/main.cpp
-        ${PROJECT_SOURCE_DIR}/MainWindow.cpp
-        ${PROJECT_SOURCE_DIR}/MainWindow.h
-        ${PROJECT_SOURCE_DIR}/MainWindow.ui
+        ${APP_DIR}/ABCInclude/CommonBase.h
+        ${APP_DIR}/ABCInclude/FramWorkExtend.h
+        ${APP_DIR}/ABCInclude/IBaseExport.h
+        ${APP_DIR}/ABCInclude/ResouceLoadCommon.h
+        ${APP_DIR}/ABCInclude/TryUtil.h
+        ${APP_DIR}/ABCInclude/GlobalDef.h
+        ${APP_DIR}/EntryExtends/BootstrapEntry.cpp
+        ${APP_DIR}/EntryExtends/BootstrapEntry.h
+        ${APP_DIR}/EntryExtends/MainConfig.cpp
+        ${APP_DIR}/EntryExtends/MainConfig.h
+        ${APP_DIR}/App_zh_CN.ts
+        ${APP_DIR}/main.cpp
+        ${APP_DIR}/MainWindow.cpp
+        ${APP_DIR}/MainWindow.h
+        ${APP_DIR}/MainWindow.ui
 )
+
 # add subDir, resources
-add_subdirectory(${PROJECT_SOURCE_DIR}/UiFrame)
+add_subdirectory(${APP_DIR}/UiFrame)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_resources(QRC_TRAGET ${PROJECT_SOURCE_DIR}/res.qrc)
+    qt_add_resources(QRC_TRAGET ${APP_DIR}/res.qrc)
     qt_add_executable(App
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES} ${QRC_TRAGET}
@@ -45,6 +45,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
+    if(${QT_VERSION_MAJOR} GREATER_EQUAL 5)
+        qt5_add_resources(QRC_TRAGET ${APP_DIR}/res.qrc)
+    endif()
     if(ANDROID)
         add_library(App SHARED
             ${PROJECT_SOURCES}
@@ -53,7 +56,7 @@ else()
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
         add_executable(App
-            ${PROJECT_SOURCES}
+            ${PROJECT_SOURCES} ${QRC_TRAGET}
         )
     endif()
 endif()
