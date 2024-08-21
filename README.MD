@@ -5,29 +5,28 @@
 跨平台应用
 
 ## 项目结构
-├─.clang-format
-├─.config.json
-├─.gitignore
-├─BBGProject.pro
-├─CMakeLists.txt
-├─cp.py
-├─LICENSE
-├─moduleIncludes.pri
-├─README.MD
-├─Plugins
-|    ├─PluginsManager
-├─Modules
-|    ├─TryModule
-|    ├─ResourceManagerModule
-|    ├─ModulesManager
-|    ├─BussinessModule
+```
 ├─App
 |  ├─UiFrame
 |  ├─res
 |  ├─EntryExtends
 |  ├─ABCInclude
+├─Modules
+|    ├─ResourceManagerModule
+|    ├─ModulesManager
+|    ├─BussinessModule
+├─Plugins
+|    ├─PluginsManager
 ├─3rdparty
-
+├─.clang-format
+├─.config.json
+├─.gitignore
+├─BBGProject.pro
+├─CMakeLists.txt
+├─LICENSE
+├─moduleIncludes.pri
+├─README.MD
+```
 ## 界面展示
 
 界面
