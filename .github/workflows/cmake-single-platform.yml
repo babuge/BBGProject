@@ -33,7 +33,8 @@ jobs:
         # what platform are you installing for? desktop, winrt, android, or ios
         platform: desktop
         # what optional Qt modules to install? qtcharts, qtnetworkauth ect...
-        # modules: 
+        # ['debug_info', 'gcc_64', 'qtcharts', 'qtdatavis3d', 'qtnetworkauth', 'qtpurchasing', 'qtscript', 'qtvirtualkeyboard', 'qtwebengine', 'qtwebglplugin']
+        modules: 'qtwebengine qtcharts gcc_64'
         
     - uses: actions/checkout@v4
 
