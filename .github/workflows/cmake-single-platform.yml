@@ -28,9 +28,16 @@ jobs:
       run: cmake -B ${{github.workspace}}/Build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Setup Qt
-      uses: actions/setup-qt@v4
+      uses: WillBrennan/yaqti@2021.07.29
       with:
-        qt-version: '6.2.1' # The Qt version to install ,or 5.12.2
+        # The Qt version to install ,or 5.12.2
+        version: '6.2.1' 
+        # install os; linux, windows, or mac
+        os: linux, windows, mac
+        # what platform are you installing for? desktop, winrt, android, or ios
+        platform: desktop
+        # what optional Qt modules to install? qtcharts, qtnetworkauth ect...
+        # modules: 
     
     - name: Build
       # Build your program with the given configuration
