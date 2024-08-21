@@ -13,8 +13,6 @@ on:
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
-  # QT_DIR
-  QT_DIR: ./qt/5122
 
 jobs:
 
@@ -33,7 +31,7 @@ jobs:
         # Directory to install Qt
         dir: ./qt/5152 # optional
         # Version of Qt to install
-        version: 5.15.2 # optional, default is 5.15.2
+        version: 6.2.0 # optional, default is 5.15.2
         # Host platform
         #host: linux # optional
         # Target platform for build
@@ -43,7 +41,7 @@ jobs:
         # Whether or not to install Qt dependencies on Linux
         #install-deps: true # optional, default is true
         # Additional Qt modules to install
-        modules: # optional
+        #modules: # optional
         # Specify which Qt archive to install
         #archives: # optional
         # Whether or not to cache Qt automatically
