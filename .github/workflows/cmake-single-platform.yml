@@ -28,28 +28,16 @@ jobs:
     steps:
     
     - name: Install Qt
-      uses: jurplel/install-qt-action@v4
+      uses: jurplel/install-qt-action@v3
       with:
-        version: '6.2.0'
+        aqtversion: '==3.1.*'
+        version: '6.2.4'
         host: 'linux'
         target: 'desktop'
-        arch: ''
-        dir: '${{ github.workspace }}/example/'
-        install-deps: 'true'
-        modules: 'qtcharts qtwebengine'
-        archives: 'qtbase qtsvg'
-        cache: 'false'
-        cache-key-prefix: 'install-qt-action'
-        setup-python: 'true'
+        arch: 'gcc_64'
+        modules: 'qt3d qtcharts qtmultimedia qtwebengine qtwebview'
         tools: 'tools_cmake'
-        set-env: 'true'
-        tools-only: 'false'
-        aqtversion: '==3.1.*'
-        py7zrversion: '==0.20.*'
-        extra: ''
 
-    - name: Print list
-      run: sudo aqt list-tool linux desktop
         
     - uses: actions/checkout@v4
 
