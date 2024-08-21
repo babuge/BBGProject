@@ -14,7 +14,7 @@ env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
   # QT_DIR
-  QT_DIR: ./qt/6020
+  QT_DIR: ./qt/5122
 
 jobs:
 
@@ -25,18 +25,68 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - name: Install Qt5/Qt6 (yaqti)
-      uses: WillBrennan/yaqti@2021.07.29
+    - name: Install Qt
+      # You may pin to the exact commit or the version.
+      # uses: jurplel/install-qt-action@f03f05556819ceb3781ee2f455ec44c339d683c0
+      uses: jurplel/install-qt-action@v4.0.0
       with:
-        # The Qt version to install , 6.2.0 or 5.12.2 ...
-        version: '6.2.0' 
-        # install os; linux, windows, or mac
-        os: linux
-        # what platform are you installing for? desktop, winrt, android, or ios
-        platform: desktop
-        # what optional Qt modules to install? qtcharts, qtnetworkauth ect...
-        # ['debug_info', 'gcc_64', 'qtcharts', 'qtdatavis3d', 'qtnetworkauth', 'qtpurchasing', 'qtscript', 'qtvirtualkeyboard', 'qtwebengine', 'qtwebglplugin']
-        modules: "gcc_64"
+        # Directory to install Qt
+        dir: ./qt/5152 # optional
+        # Version of Qt to install
+        version: 5.15.2 # optional, default is 5.15.2
+        # Host platform
+        #host: linux # optional
+        # Target platform for build
+        target: desktop # optional, default is desktop
+        # Architecture for Windows/Android
+        #arch: # optional
+        # Whether or not to install Qt dependencies on Linux
+        #install-deps: true # optional, default is true
+        # Additional Qt modules to install
+        modules: # optional
+        # Specify which Qt archive to install
+        #archives: # optional
+        # Whether or not to cache Qt automatically
+        #cache: # optional
+        # Cache key prefix for automatic cache
+        #cache-key-prefix: # optional, default is install-qt-action
+        # Whether or not to automatically run setup-python to find a valid python version.
+        #setup-python: # optional, default is true
+        # Qt tools to download -- specify comma-separated argument lists which are themselves separated by spaces: <tool_name>,<tool_version>,<tool_arch>
+    
+        #tools:  # optional
+        # When true, prepends directories of tools to PATH environment variable.
+        #add-tools-to-path: # optional, default is true
+        # Whether or not to set environment variables after running aqtinstall
+        #set-env: # optional, default is true
+        # Turns off installation of Qt. Useful for installing tools, source, documentation, or examples.
+        #no-qt-binaries: # optional
+        # Synonym for `no-qt-binaries`, used for backwards compatibility.
+        #tools-only: # optional
+        # Location to source aqtinstall from in case of issues
+        #aqtsource: # optional
+        # Version of aqtinstall to use in case of issues
+        #aqtversion: # optional, default is ==3.1.*
+        # Version of py7zr to use in case of issues
+        #py7zrversion: # optional, default is ==0.20.*
+        # Any extra arguments to append to the back
+        #extra: # optional
+        # Whether or not to install Qt source code.
+        #source: # optional
+        # Space-separated list of .7z source archives to install. Used to reduce download/image sizes.
+        #src-archives: # optional
+        # Whether or not to install Qt documentation.
+        #documentation: # optional
+        # Space-separated list of .7z docs archives to install. Used to reduce download/image sizes.
+        #doc-archives: # optional
+        # Space-separated list of additional documentation modules to install.
+        #doc-modules: # optional
+        # Whether or not to install Qt example code.
+        #examples: # optional
+        # Space-separated list of .7z example archives to install. Used to reduce download/image sizes.
+        #example-archives: # optional
+        # Space-separated list of additional example modules to install.
+        #example-modules: # optional
       
         
     - uses: actions/checkout@v4
