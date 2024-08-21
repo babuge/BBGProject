@@ -49,7 +49,7 @@ jobs:
     #     extra: ''
 
     - name: Print list
-      run: aqt list-tool linux desktop
+      run: sudo aqt list-tool linux desktop
         
     - uses: actions/checkout@v4
 
