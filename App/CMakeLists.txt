@@ -16,6 +16,7 @@ set(PROJECT_SOURCES
         ABCInclude/IBaseExport.h
         ABCInclude/ResouceLoadCommon.h
         ABCInclude/TryUtil.h
+        ABCInclude/GlobalDef.h
         EntryExtends/BootstrapEntry.cpp
         EntryExtends/BootstrapEntry.h
         EntryExtends/MainConfig.cpp
@@ -51,14 +52,27 @@ else()
     endif()
 endif()
 
-target_link_libraries(BBGProject
-    PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
-    PRIVATE ${BUILD_SHARED_LIBS_DIR}/libPluginsManager.dll
-    PRIVATE ${BUILD_SHARED_LIBS_DIR}/libTryModule.dll
-    PRIVATE ${BUILD_SHARED_LIBS_DIR}/libBussinessModule.dll
-    PRIVATE ${BUILD_SHARED_LIBS_DIR}/libModulesManager.dll
-    PRIVATE ${BUILD_SHARED_LIBS_DIR}/libResourceManagerModule.dll
-)
+if(WIN32)
+    target_link_libraries(BBGProject
+        PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libgtest.dll
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libPluginsManager.dll
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libTryModule.dll
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libBussinessModule.dll
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libModulesManager.dll
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libResourceManagerModule.dll
+    )
+elseif(UNIX)
+    target_link_libraries(BBGProject
+        PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libgtest.so
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libPluginsManager.so
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libTryModule.so
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libBussinessModule.so
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libModulesManager.so
+        PRIVATE ${BUILD_SHARED_LIBS_DIR}/libResourceManagerModule.so
+    )
+endif()
 
 set_target_properties(BBGProject PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
