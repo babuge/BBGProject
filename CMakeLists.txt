@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
+project(App VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTOUIC ON)
@@ -31,7 +32,6 @@ execute_process(
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/Build/App
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/lib
     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/.config.json ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/QtLibs/ ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/lib/
 )
 
 set(CMAKE_LIBRARY_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Build/App/lib)

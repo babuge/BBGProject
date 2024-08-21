@@ -4,12 +4,13 @@
 /**/debug
 /**/release
 
+
+/**/CMakeFiles
 *.pro.user
 Makefile
 /**/Makefile
 /**/Makefile.Debug
 /**/Makefile.Release
-/*.pro.user
 /*.user
 /CMakeFiles
 /.cmake
@@ -20,3 +21,6 @@ Makefile
 /**/moc_*.cpp
 /**/ui_*.h
 CMakeCache.txt.prev
+CMakeCache.txt
+cmake_install.cmake
+
