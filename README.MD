@@ -12,7 +12,6 @@
 |  ├─EntryExtends
 |  ├─ABCInclude
 ├─Modules
-|    ├─TryModule
 |    ├─ResourceManagerModule
 |    ├─ModulesManager
 |    ├─BussinessModule
