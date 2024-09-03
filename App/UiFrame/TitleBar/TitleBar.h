@@ -11,7 +11,7 @@
  * NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
  * See the Mulan PSL v2 for more details.
  *
- * 文件名称 ：   MainTitleBar.h
+ * 文件名称 ：   TitleBar.h
  * 文件标识 ：
  * 摘 要 ：     Window title bar头文件
  * 当前版本 ：   v0.01.0
