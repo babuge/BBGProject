@@ -8,7 +8,9 @@
         QFile file(qssFile);                                                                       \
         file.open(QFile::ReadOnly);                                                                \
         if (file.isOpen()) {                                                                       \
-            qApp->setStyleSheet(file.readAll());                                                   \
+            if (qApp != nullptr) {                                                                 \
+                qApp->setStyleSheet(file.readAll());                                               \
+            }                                                                                      \
             file.close();                                                                          \
         }                                                                                          \
     }

@@ -9,7 +9,8 @@
 
 #include <QDebug>
 
-ResourceManagerModule::ResourceManagerModule(QObject *parent) : IBaseExport(parent)
+ResourceManagerModule::ResourceManagerModule(QObject *parent)
+    : IBaseExport(parent)
 {
     m_resourceArr.resize(6);
     for (int i = 0; i < 6; ++i) {
