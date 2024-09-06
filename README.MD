@@ -34,7 +34,7 @@
 #### 开发环境及配置
 
 1. QtCreator5.12及以上，Windows，linux。
-2. 内存4GB以上，磁盘250G以上
+2. 内存:2GB+，磁盘:16G+
 3. qtCreator构建运行配置：
 
    * 配置realese
