@@ -30,13 +30,17 @@ typedef long int *PtrType;
 
 // 释放内存
 #define RELESE(p_TypeName)                                                                         \
-    if (p_TypeName != nullptr) {                                                                   \
-        delete p_TypeName;                                                                         \
-        p_TypeName = nullptr;                                                                      \
-    }
+    do {                                                                                           \
+        if (p_TypeName != nullptr) {                                                               \
+            delete p_TypeName;                                                                     \
+            p_TypeName = nullptr;                                                                  \
+        }                                                                                          \
+    } while (0);
 
 #define RELESEARR(p_ArrName)                                                                       \
-    if (p_ArrName != nullptr) {                                                                    \
-        delete[] p_ArrName;                                                                        \
-        p_ArrName = nullptr;                                                                       \
-    }
+    do {                                                                                           \
+        if (p_ArrName != nullptr) {                                                                \
+            delete[] p_ArrName;                                                                    \
+            p_ArrName = nullptr;                                                                   \
+        }                                                                                          \
+    } while (0);

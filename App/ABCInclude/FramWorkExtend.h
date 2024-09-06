@@ -34,7 +34,7 @@
         }                                                                                          \
         ~GC_()                                                                                     \
         {                                                                                          \
-            if (m_p->isRunning()) {                                                                \
+            if (m_p != nullptr && m_p->isRunning()) {                                              \
                 m_p->stop();                                                                       \
                 m_p->deleteLater();                                                                \
             }                                                                                      \
