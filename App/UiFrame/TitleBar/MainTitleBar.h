@@ -21,22 +21,21 @@
  * 原作者   ：  babuge
  * 完成日期 ：  2024/08/19
  ******************************************************************************/
+
 #pragma once
 
 #include "TitleBar.h"
 #include <QWidget>
 
-namespace Ui
-{
+namespace Ui {
 class MainTitleBar;
 }
 
-class MainTitleBar : public TitleBar
-{
+class MainTitleBar : public TitleBar {
     Q_OBJECT
 
 public:
-    explicit MainTitleBar(QWidget *parent = 0);
+    explicit MainTitleBar( QWidget* parent = 0 );
     ~MainTitleBar();
 
 private Q_SLOTS:
@@ -45,5 +44,5 @@ private Q_SLOTS:
     void Slot_WindMaxClicked();
 
 private:
-    Ui::MainTitleBar *ui;
+    Ui::MainTitleBar* ui;
 };

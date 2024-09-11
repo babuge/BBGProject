@@ -59,30 +59,30 @@ INCLUDEPATH += \
 
 DEPENDPATH += \
     $${OUTDIR}/lib
-    
-win32-msvc{
-    QMAKE_CXXFLAGS += /utf-8
-    LibPath = $$absolute_path($${OUTDIR}/lib/*.dll)
-    FileList = $$files($${LibPath})
-    FileList = $$replace(FileList, '$${OUTDIR}/lib/', '')
-    FileList = $$replace(FileList, '\.dll', '')
-    dllList = $$join(FileList, " -l", -l)
-    for(var, $$list($${dllList})) {
-        item = $${var}
-        LIBS += -L$${OUTDIR}/lib/ $${item}
+
+if(win32){
+    if (msvc | mingw){
+        LibPath = $$absolute_path($${OUTLIBSDIR}/*.dll)
+        FileList = $$files($${LibPath})
+        FileList = $$replace(FileList, '$${OUTLIBSDIR}/', '')
+        FileList = $$replace(FileList, '\.dll', '')
+        dllList = $$join(FileList, " -l", -l)
+        for(var, $$list($${dllList})) {
+            item = $${var}
+            LIBS += -L$${OUTLIBSDIR}/ $${item}
+        }
     }
-
-}
-
-unix:!mac{
-    LibPath = $$absolute_path($${OUTDIR}/lib/*.so)
-    FileList = $$files($${LibPath})
-    FileList = $$replace(FileList, '$${OUTDIR}/lib/lib', '')
-    FileList = $$replace(FileList, '\.so', '')
-    dllList = $$join(FileList, " -l", -l)
-    for(var, $$list($${dllList})) {
-        item = $${var}
-        LIBS += -L$${OUTDIR}/lib/ $${item}
+} else{
+    unix:!mac{
+        LibPath = $$absolute_path($${OUTLIBSDIR}/*.so)
+        FileList = $$files($${LibPath})
+        FileList = $$replace(FileList, '$${OUTLIBSDIR}/', '')
+        FileList = $$replace(FileList, '\.so', '')
+        dllList = $$join(FileList, " -l", -l)
+        for(var, $$list($${dllList})) {
+            item = $${var}
+            LIBS += -L$${OUTLIBSDIR}/ $${item}
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-﻿/******************************************************************************
+/**********************************************
  * Copyright (C) [2024] [github.com/babuge]
  *
  * [BBGProject] is licensed under Mulan PSL v2.
@@ -27,22 +27,21 @@
 #include <QObject>
 #include <QWidget>
 
-class TitleBar : public QWidget
-{
+class TitleBar : public QWidget {
     Q_OBJECT
 public:
-    explicit TitleBar(QWidget *parent = 0);
-    void setParentWidget(QWidget *parentWidget);
+    explicit TitleBar( QWidget* parent = 0 );
+    void setParentWidget( QWidget* parentWidget );
 
 protected:
-    void mousePressEvent(QMouseEvent *);
-    void mouseReleaseEvent(QMouseEvent *);
-    void mouseMoveEvent(QMouseEvent *);
+    void mousePressEvent( QMouseEvent* );
+    void mouseReleaseEvent( QMouseEvent* );
+    void mouseMoveEvent( QMouseEvent* );
 
 protected:
-    QWidget *m_pParentWidget;
+    QWidget* m_pParentWidget;
 
 private:
-    bool m_blPress;
+    bool   m_blPress;
     QPoint m_PointMove;
 };

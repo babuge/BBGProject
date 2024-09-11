@@ -6,7 +6,7 @@ INCLUDEPATH += \
 DESTDIR = $${OUTLIBSDIR}
 
 win32-msvc{
-QMAKE_CXXFLAGS += /utf-8
+    QMAKE_CXXFLAGS += /utf-8
 }
 
 unix:!mac{
