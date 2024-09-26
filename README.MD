@@ -15,6 +15,7 @@
 |    ├─ResourceManagerModule
 |    ├─ModulesManager
 |    ├─BussinessModule
+|    ├─LoggerManager
 ├─Plugins
 |    ├─PluginsManager
 ├─3rdparty
