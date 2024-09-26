@@ -13,7 +13,7 @@
  *
  * 文件名称 ：   BootstrapEntry.cpp
  * 文件标识 ：
- * 摘 要 ：     
+ * 摘 要 ：
  * 当前版本 ：   v0.01.1
  * 作 者 ：     babuge
  * 完成日期 ：
@@ -43,7 +43,8 @@ BootstrapEntry::BootstrapEntry(QObject *parent)
 {
     m_coreHandle.clear();
     m_coreLibs.clear();
-    m_config.setCore({ "ResourceManagerModule", "ModulesManager" });  //, "PluginsManager" });
+    m_config.setCore(
+        { "ResourceManagerModule", "ModulesManager", "LoggerManager" });  //, "PluginsManager" });
     m_config.setBussiness({});
 }
 
@@ -192,7 +193,7 @@ void BootstrapEntry::init()
         }
     }
 
-    QTimer::singleShot(10000, this, [=]() { restart(); });
+    QTimer::singleShot(5000, this, [=]() { restart(); });
 }
 
 void BootstrapEntry::unInit()

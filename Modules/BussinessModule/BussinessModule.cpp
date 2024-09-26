@@ -13,7 +13,7 @@
  *
  * 文件名称 ：   BussinessModule.cpp
  * 文件标识 ：
- * 摘 要 ：     
+ * 摘 要 ：
  * 当前版本 ：   v0.01.1
  * 作 者 ：     babuge
  * 完成日期 ：
@@ -26,13 +26,14 @@
 #include <QDebug>
 
 BussinessModule::BussinessModule(QObject *parent)
-    : IBaseExport(parent), m_freeType(ResourceFreeType::EXTRA)
+    : IBaseExport(parent)
+    , m_freeType(ResourceFreeType::EXTRA)
 {
 }
 
 BussinessModule::~BussinessModule()
 {
-    qDebug() << "析构~BussinessModule";
+    qDebug() << "free~BussinessModule";
 }
 
 void BussinessModule::start()
@@ -40,7 +41,7 @@ void BussinessModule::start()
     // 线程：重新更新状态库状态
     if (!isRunning()) {
         setStatus(LifeCycleStatus::RUNNING);
-        qDebug() << "BussinessModule 开始运行 操作" << this;
+        qDebug() << "BussinessModule Strat Runing Operator" << this;
         // ...
     }
 }
@@ -50,7 +51,7 @@ void BussinessModule::stop()
     // 线程：处理库公共状态，重置为初始状态
     if (isRunning()) {
         setStatus(LifeCycleStatus::FINISH);
-        qDebug() << "BussinessModule 结束运行 操作" << this;
+        qDebug() << "BussinessModule Stop Runing Operator" << this;
         // ...
     }
 }

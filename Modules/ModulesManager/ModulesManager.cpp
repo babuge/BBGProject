@@ -13,7 +13,7 @@
  *
  * 文件名称 ：   ModulesManager.cpp
  * 文件标识 ：
- * 摘 要 ：     
+ * 摘 要 ：
  * 当前版本 ：   v0.01.1
  * 作 者 ：     babuge
  * 完成日期 ：
@@ -29,11 +29,14 @@
 
 static QMap<QString, void *> g_golbalLibraryMap;
 
-ModulesManager::ModulesManager(QObject *parent) : IBaseExport(parent) {}
+ModulesManager::ModulesManager(QObject *parent)
+    : IBaseExport(parent)
+{
+}
 
 ModulesManager::~ModulesManager()
 {
-    qDebug() << "析构~ModulesManager";
+    qDebug() << "free~ModulesManager";
 }
 
 ModulesManagerPtr ModulesManager::instance()
@@ -46,7 +49,7 @@ void ModulesManager::start()
 {
     // 线程：重新更新状态库状态
     if (!isRunning()) {
-        qDebug() << "ModulesManager 开始运行 操作";
+        qDebug() << "ModulesManager Strat Runing Operator";
         // ...
         setStatus(LifeCycleStatus::RUNNING);
     }
@@ -56,7 +59,7 @@ void ModulesManager::stop()
 {
     // 线程：处理库公共状态，重置为初始状态
     if (isRunning()) {
-        qDebug() << "ModulesManager 结束运行 操作";
+        qDebug() << "ModulesManager Stop Runing Operator";
         // ...
         setStatus(LifeCycleStatus::FINISH);
     }
