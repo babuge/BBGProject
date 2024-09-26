@@ -13,7 +13,7 @@
  *
  * 文件名称 ：   PluginsManager.cpp
  * 文件标识 ：
- * 摘 要 ：     
+ * 摘 要 ：
  * 当前版本 ：   v0.01.1
  * 作 者 ：     babuge
  * 完成日期 ：
@@ -32,7 +32,10 @@
 
 QMap<QString, PluginsStatusPtr> g_golbalPluginsStatus;
 QReadWriteLock PluginsManager::m_rwLock;
-PluginsManager::PluginsManager(QObject *parent) : IBaseExport(parent) {}
+PluginsManager::PluginsManager(QObject *parent)
+    : IBaseExport(parent)
+{
+}
 
 PluginsManagerPtr PluginsManager::instance()
 {
@@ -47,14 +50,14 @@ PluginsManager::~PluginsManager()
         m_pluginCheck->quit();
         m_pluginCheck->wait();
     }
-    qDebug() << "析构~PluginsManager";
+    qDebug() << "free~PluginsManager";
 }
 
 void PluginsManager::start()
 {
     // 线程：重新更新状态库状态
     if (!isRunning()) {
-        qDebug() << "PluginsManager 开始运行 操作";
+        qDebug() << "PluginsManager Strat Runing Operator";
         startCheck();
         // ...
 
@@ -67,7 +70,7 @@ void PluginsManager::stop()
     // 线程：处理库公共状态，重置为初始状态
     if (isRunning()) {
         stopCheck();
-        qDebug() << "PluginsManager 结束运行 操作";
+        qDebug() << "PluginsManager Stop Runing Operator";
         // ...
 
         setStatus(LifeCycleStatus::FINISH);

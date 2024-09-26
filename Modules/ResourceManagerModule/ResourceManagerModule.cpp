@@ -13,7 +13,7 @@
  *
  * 文件名称 ：   ResourceManagerModule.cpp
  * 文件标识 ：
- * 摘 要 ：     
+ * 摘 要 ：
  * 当前版本 ：   v0.01.1
  * 作 者 ：     babuge
  * 完成日期 ：
@@ -50,7 +50,7 @@ ResourcesManagerPtr ResourceManagerModule::instance()
 
 ResourceManagerModule::~ResourceManagerModule()
 {
-    qDebug() << " 析构 ~ResourceManagerModule";
+    qDebug() << " free ~ResourceManagerModule";
 }
 
 void ResourceManagerModule::start()
@@ -58,7 +58,7 @@ void ResourceManagerModule::start()
     // 线程：重新更新状态库状态
     if (!isRunning()) {
         setStatus(LifeCycleStatus::RUNNING);
-        qDebug() << "ResourceManagerModule 开始运行 操作";
+        qDebug() << "ResourceManagerModule Strat Runing Operator";
         // ...
     }
 }
@@ -68,7 +68,7 @@ void ResourceManagerModule::stop()
     // 线程：处理库公共状态，重置为初始状态
     if (isRunning()) {
         setStatus(LifeCycleStatus::FINISH);
-        qDebug() << "ResourceManagerModule 结束运行 操作";
+        qDebug() << "ResourceManagerModule Stop Runing Operator";
         // ...
     }
 }

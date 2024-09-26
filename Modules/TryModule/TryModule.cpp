@@ -13,7 +13,7 @@
  *
  * 文件名称 ：   TryModule.cpp
  * 文件标识 ：
- * 摘 要 ：     
+ * 摘 要 ：
  * 当前版本 ：   v0.01.1
  * 作 者 ：     babuge
  * 完成日期 ：
@@ -27,11 +27,15 @@
 
 #include <QDebug>
 
-TryModule::TryModule(QObject *parent) : IBaseExport(parent), m_freeType(ResourceFreeType::AUTO) {}
+TryModule::TryModule(QObject *parent)
+    : IBaseExport(parent)
+    , m_freeType(ResourceFreeType::AUTO)
+{
+}
 
 TryModule::~TryModule()
 {
-    qDebug() << "析构~TryModule";
+    qDebug() << "free~TryModule";
 }
 
 TryModulePtr TryModule::instance()
@@ -44,7 +48,7 @@ void TryModule::start()
 {
     // 线程：重新更新状态库状态
     if (!isRunning()) {
-        qDebug() << "TryModule 开始运行 操作" << this;
+        qDebug() << "TryModule Strat Runing Operator" << this;
         // ...
         setStatus(LifeCycleStatus::RUNNING);
     }
@@ -59,7 +63,7 @@ void TryModule::stop()
 {
     // 线程：处理库公共状态，重置为初始状态
     if (isRunning()) {
-        qDebug() << "TryModule 结束运行 操作" << this;
+        qDebug() << "TryModule Stop Runing Operator" << this;
         // ...
         setStatus(LifeCycleStatus::FINISH);
     }

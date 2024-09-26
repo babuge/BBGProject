@@ -7,7 +7,8 @@
         "core": [
             "ResourceManagerModule",
             "ModulesManager",
-            "PluginsManager"
+            "PluginsManager",
+            "LoggerManager"
         ]
     }
 }
