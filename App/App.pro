@@ -8,7 +8,7 @@ CONFIG -= c++17
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
+include($${ProConfig}/AppConfig.pri)
 include($$PWD/UiFrame/UiFrame.pri)
 
 SOURCES += \
@@ -32,15 +32,8 @@ HEADERS += \
 FORMS += \
         MainWindow.ui
 
-TRANSLATIONS += \
-    App_zh_CN.ts
-
-CONFIG += lrelease
-CONFIG += embed_translations
 
 TARGET = Framework
-
-DESTDIR = $${OUTDIR}
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -57,34 +50,10 @@ INCLUDEPATH += \
     $${ProjectRootDir}/Modules/TryModule \
     $${ProjectRootDir}/Plugins/PluginsManager
 
-DEPENDPATH += \
-    $${OUTDIR}/lib
+INCLUDEPATH += $${ThirdParty}/GTest-1.8.x/include
 
-if(win32){
-    if (msvc | mingw){
-        LibPath = $$absolute_path($${OUTLIBSDIR}/*.dll)
-        FileList = $$files($${LibPath})
-        FileList = $$replace(FileList, '$${OUTLIBSDIR}/', '')
-        FileList = $$replace(FileList, '\.dll', '')
-        dllList = $$join(FileList, " -l", -l)
-        for(var, $$list($${dllList})) {
-            item = $${var}
-            LIBS += -L$${OUTLIBSDIR}/ $${item}
-        }
-    }
-} else{
-    unix:!mac{
-        LibPath = $$absolute_path($${OUTLIBSDIR}/*.so)
-        FileList = $$files($${LibPath})
-        FileList = $$replace(FileList, '$${OUTLIBSDIR}/', '')
-        FileList = $$replace(FileList, '\.so', '')
-        dllList = $$join(FileList, " -l", -l)
-        for(var, $$list($${dllList})) {
-            item = $${var}
-            LIBS += -L$${OUTLIBSDIR}/ $${item}
-        }
-    }
-}
+DEPENDPATH += $${OUTLIB}
+
 
 RESOURCES += \
     res.qrc

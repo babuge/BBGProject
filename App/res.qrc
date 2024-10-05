@@ -20,9 +20,7 @@
         <file>res/img/right_arrow_pressed.png</file>
         <file>res/img/babuge.png</file>
     </qresource>
-    <qresource prefix="/ts">
-        <file>res/ts/App_zh_CN.ts</file>
-    </qresource>
+    <qresource prefix="/ts"/>
     <qresource prefix="/dict">
         <file>res/dict/Protocol.json</file>
         <file>res/dict/some.dic</file>
