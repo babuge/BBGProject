@@ -51,6 +51,19 @@ INCLUDEPATH += \
     $${ProjectRootDir}/Plugins/PluginsManager
 
 INCLUDEPATH += $${ThirdParty}/GTest-1.8.x/include
+# gtest
+if(win32){
+    if(mingw){
+        $$headersCopyFunc($${OUTLIB},"", $${ThirdParty}/GTest-1.8.x/lib/mingw/libgtest.dll)
+        LIBS += -L$${OUTLIB}/ -lgtest
+    } else {
+        $$headersCopyFunc($${OUTLIB},"", $${ThirdParty}/GTest-1.8.x/lib/win/libgtest.dll)
+        LIBS += $${OUTLIB}/libgtest.dll
+    }
+} esle {
+    $$headersCopyFunc($${OUTLIB},"", $${ThirdParty}/GTest-1.8.x/lib/linux/libgtest.so)
+    LIBS += -L$${OUTLIB}/ -lgtest
+}
 
 DEPENDPATH += $${OUTLIB}
 
