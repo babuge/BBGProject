@@ -2,6 +2,7 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(APP_DIR ${PROJECT_SOURCE_DIR}/App)
+
 include_directories(${APP_DIR}/ABCInclude)
 include_directories(${APP_DIR}/EntryExtends)
 include_directories(${APP_DIR}/UiFrame)
@@ -82,6 +83,8 @@ elseif(UNIX)
     )
 endif()
 
+set(EXECUTABLE_OUTPUT_PATH ${BUILD_APP_DIR})
+
 set_target_properties(App PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
@@ -93,8 +96,6 @@ set_target_properties(App PROPERTIES
 install(TARGETS App
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
-
-set(EXECUTABLE_OUTPUT_PATH ${BUILD_APP_DIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(App)
