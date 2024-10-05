@@ -9,12 +9,8 @@ SUBDIRS += \
 
 OTHER_FILES += \
     .clang-format \
-    README.MD \
+    .qmake.conf \
     .config.json
-
-DISTFILES += \
-    .qmake.conf
-
 
 win32-msvc{
     path = "copy /y $$system_path($${ProjectRootDir}/.config.json) $$system_path($${OUTDIR}/)"
