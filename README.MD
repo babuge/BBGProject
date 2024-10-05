@@ -7,25 +7,24 @@
 ## 项目结构
 ```
 ├─App
-|  ├─UiFrame
-|  ├─res
-|  ├─EntryExtends
-|  ├─ABCInclude
-├─Modules
-|    ├─ResourceManagerModule
-|    ├─ModulesManager
-|    ├─BussinessModule
-|    ├─LoggerManager
+├─ThirdParty
 ├─Plugins
 |    ├─PluginsManager
-├─ThirdParty
+├─Modules
+|    ├─TryModule
+|    ├─ResourceManagerModule
+|    ├─ModulesManager
+|    ├─LoggerManager
+|    ├─BussinessModule
+├─install
+├─Build
 ├─.clang-format
 ├─.config.json
 ├─.gitignore
+├─.qmake.conf
 ├─BBGProject.pro
 ├─CMakeLists.txt
 ├─LICENSE
-├─moduleIncludes.pri
 ├─README.MD
 ```
 ## 界面展示
