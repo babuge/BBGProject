@@ -1,4 +1,5 @@
 
+add_subdirectory(LoggerManager)
 add_subdirectory(ModulesManager)
 add_subdirectory(BussinessModule)
 add_subdirectory(ResourceManagerModule)

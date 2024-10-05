@@ -359,7 +359,7 @@ void LoggerManager::LoggerOutConsole(QtMsgType type,
         fprintf(stderr, "%s", byte_log.constData());
         break;
     }
-
+    fflush(stdout);
     if (type == QtFatalMsg) {
         abort();
     }
