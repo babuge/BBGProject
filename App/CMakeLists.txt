@@ -24,7 +24,6 @@ set(PROJECT_SOURCES
         ${APP_DIR}/EntryExtends/BootstrapEntry.h
         ${APP_DIR}/EntryExtends/MainConfig.cpp
         ${APP_DIR}/EntryExtends/MainConfig.h
-        ${APP_DIR}/App_zh_CN.ts
         ${APP_DIR}/main.cpp
         ${APP_DIR}/MainWindow.cpp
         ${APP_DIR}/MainWindow.h
@@ -94,6 +93,8 @@ set_target_properties(App PROPERTIES
 install(TARGETS App
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+
+set(EXECUTABLE_OUTPUT_PATH ${BUILD_APP_DIR})
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(App)
