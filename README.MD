@@ -18,7 +18,7 @@
 |    ├─LoggerManager
 ├─Plugins
 |    ├─PluginsManager
-├─3rdparty
+├─ThirdParty
 ├─.clang-format
 ├─.config.json
 ├─.gitignore
