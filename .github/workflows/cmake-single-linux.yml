@@ -35,7 +35,7 @@ jobs:
         host: 'linux'
         target: 'desktop'
         arch: 'gcc_64'
-        modules: 'qt3d qtcharts qtmultimedia qtwebengine qtwebview'
+        modules: ''
         tools: 'tools_cmake'
 
         
