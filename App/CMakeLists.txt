@@ -83,7 +83,7 @@ elseif(UNIX)
     )
 endif()
 
-set(EXECUTABLE_OUTPUT_PATH ${BUILD_APP_DIR})
+set(EXECUTABLE_OUTPUT_PATH ${BUILD_PROJECT_DIR})
 
 set_target_properties(App PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
